@@ -1,0 +1,20 @@
+uuid: 5fb0716c-6053-4de7-9e48-10d58b76065d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_movement_amount
+field_name: field_movement_amount
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

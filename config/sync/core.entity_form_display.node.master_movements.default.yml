@@ -1,0 +1,56 @@
+uuid: c3d6e2d3-7479-43f6-a1aa-431baa34aea7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.master_movements.body
+    - field.field.node.master_movements.field_master_movements_date
+    - field.field.node.master_movements.field_master_movements_document
+    - node.type.master_movements
+  module:
+    - datetime
+    - file
+    - text
+id: node.master_movements.default
+targetEntityType: node
+bundle: master_movements
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 1
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_master_movements_date:
+    type: datetime_default
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_master_movements_document:
+    type: file_generic
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

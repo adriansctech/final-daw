@@ -1,0 +1,38 @@
+uuid: 1ec2c212-c1e7-4e5d-8e97-9f8c8ddc5233
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.movement.body
+    - field.field.node.movement.field_movement_amount
+    - field.field.node.movement.field_movement_category
+    - field.field.node.movement.field_movement_date
+    - field.field.node.movement.field_movement_subcategory
+    - node.type.movement
+  module:
+    - text
+    - user
+id: node.movement.teaser
+targetEntityType: node
+bundle: movement
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_movement_amount: true
+  field_movement_category: true
+  field_movement_date: true
+  field_movement_subcategory: true

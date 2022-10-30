@@ -1,0 +1,23 @@
+uuid: a200aafb-dedd-495c-9f39-9923df9080e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.movement
+  module:
+    - text
+id: node.movement.body
+field_name: body
+entity_type: node
+bundle: movement
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

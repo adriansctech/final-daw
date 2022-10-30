@@ -1,0 +1,77 @@
+uuid: 1d3b61f3-f5e8-4c69-b90a-2dbef7ecf725
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.movement.body
+    - field.field.node.movement.field_movement_amount
+    - field.field.node.movement.field_movement_category
+    - field.field.node.movement.field_movement_date
+    - field.field.node.movement.field_movement_subcategory
+    - node.type.movement
+  module:
+    - datetime
+    - text
+id: node.movement.default
+targetEntityType: node
+bundle: movement
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 1
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_movement_amount:
+    type: number
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_movement_category:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_movement_date:
+    type: datetime_default
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_movement_subcategory:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true
