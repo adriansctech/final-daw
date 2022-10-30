@@ -20,7 +20,8 @@
         "drupal/core-composer-scaffold": "^9.4",
         "drupal/core-project-message": "^9.4",
         "drupal/core-recommended": "^9.4",
-        "drush/drush": "^11.3"
+        "drush/drush": "^11.3",
+        "phpoffice/phpspreadsheet": "^1.25"
     },
     "conflict": {
         "drupal/drupal": "*"
