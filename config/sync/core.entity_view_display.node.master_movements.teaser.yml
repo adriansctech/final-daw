@@ -1,0 +1,34 @@
+uuid: ad8bfba1-61ef-4a0f-93f7-d861087fa0d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.master_movements.body
+    - field.field.node.master_movements.field_master_movements_date
+    - field.field.node.master_movements.field_master_movements_document
+    - node.type.master_movements
+  module:
+    - text
+    - user
+id: node.master_movements.teaser
+targetEntityType: node
+bundle: master_movements
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_master_movements_date: true
+  field_master_movements_document: true

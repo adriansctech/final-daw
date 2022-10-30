@@ -1,0 +1,23 @@
+uuid: cc76905a-601e-415f-890f-3b241cf0be58
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_movement_amount
+    - node.type.movement
+id: node.movement.field_movement_amount
+field_name: field_movement_amount
+entity_type: node
+bundle: movement
+label: Amount
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: €
+field_type: decimal
