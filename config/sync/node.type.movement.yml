@@ -1,0 +1,17 @@
+uuid: f4d9a42c-7034-41e6-bbb5-1c9cc85b4fca
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Movement
+type: movement
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: true

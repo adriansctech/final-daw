@@ -1,0 +1,21 @@
+uuid: dc07fd4b-5c79-4ad9-bbd5-c3367fdb7646
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_movement_date
+    - node.type.movement
+  module:
+    - datetime
+id: node.movement.field_movement_date
+field_name: field_movement_date
+entity_type: node
+bundle: movement
+label: Date
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

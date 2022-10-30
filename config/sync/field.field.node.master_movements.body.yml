@@ -1,0 +1,23 @@
+uuid: 49f5c2f4-09ac-4b20-b9f8-b705cc3ba387
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.master_movements
+  module:
+    - text
+id: node.master_movements.body
+field_name: body
+entity_type: node
+bundle: master_movements
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

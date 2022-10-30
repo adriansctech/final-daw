@@ -1,0 +1,65 @@
+uuid: 49d9ba73-d9d7-4a7c-bedd-f8afb42c822b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.movement.body
+    - field.field.node.movement.field_movement_amount
+    - field.field.node.movement.field_movement_category
+    - field.field.node.movement.field_movement_date
+    - field.field.node.movement.field_movement_subcategory
+    - node.type.movement
+  module:
+    - datetime
+    - text
+    - user
+id: node.movement.default
+targetEntityType: node
+bundle: movement
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_movement_amount:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_movement_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_movement_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_movement_subcategory:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  links: true

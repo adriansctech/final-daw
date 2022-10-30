@@ -1,0 +1,45 @@
+uuid: 5cabf8ad-0f79-4862-baff-df113501a71d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.master_movements.body
+    - field.field.node.master_movements.field_master_movements_date
+    - field.field.node.master_movements.field_master_movements_document
+    - node.type.master_movements
+  module:
+    - datetime
+    - file
+    - text
+    - user
+id: node.master_movements.default
+targetEntityType: node
+bundle: master_movements
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_master_movements_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_master_movements_document:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  links: true

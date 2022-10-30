@@ -1,0 +1,22 @@
+uuid: fc9cb542-563f-451a-86e3-b6e16c250ddf
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.master_movements
+id: node.master_movements.promote
+field_name: promote
+entity_type: node
+bundle: master_movements
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
