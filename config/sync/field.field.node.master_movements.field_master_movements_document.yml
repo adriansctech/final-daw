@@ -20,7 +20,7 @@ default_value_callback: ''
 settings:
   handler: 'default:file'
   handler_settings: {  }
-  file_directory: 'xls/[date:custom:Y]-[date:custom:m]'
+  file_directory: '[date:custom:Y]-[date:custom:m]/xls'
   file_extensions: xls
   max_filesize: 10MB
   description_field: false
