@@ -61,27 +61,34 @@ class MovemensHandlerContent {
 
     foreach ($sheeToArray as $key => $information) {
       if ($key >= 6) {
-        $categoryTerm = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties(['name' => $information['1'], 'vid' => 'category']);
-        $subcategoryTerm = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties(['name' => $information['2'], 'vid' => 'subcategory']);
+        $categoryTerm = $this->entityTypeManager->getStorage('taxonomy_term')
+          ->loadByProperties([
+            'name' => $information['1'],
+            'vid' => 'category'
+          ]);
+        $subcategoryTerm = $this->entityTypeManager->getStorage('taxonomy_term')
+          ->loadByProperties([
+            'name' => $information['2'],
+            'vid' => 'subcategory'
+          ]);
         $row['date'] = $information['0'];
         $row['category'] = $information['1'];
         $row['subcategory'] = $information['2'];
         $row['reason'] = $this->removeSpecialChars($information['3']);
         $row['reason'] = $information['3'];
         $row['category'] = $categoryTerm[array_key_first($categoryTerm)]->id();
-        $row['subcategory']  = $subcategoryTerm[array_key_first($subcategoryTerm)]->id();
-        if (!str_contains($information['1'], 'prestaciones') ) {
+        $row['subcategory'] = $subcategoryTerm[array_key_first($subcategoryTerm)]->id();
+        if (!str_contains($information['1'], 'prestaciones')) {
           $row['amount'] = substr($information['6'], 1);
           $this->createMovement($row);
         }
         else {
-          $row['amount'] = (int)str_replace(",", "", $information['6']);
+          $row['amount'] = (int) str_replace(",", "", $information['6']);
           $this->createPayroll($row);
         }
       }
     }
   }
-
 
   /**
    * createMovement function.
@@ -116,7 +123,7 @@ class MovemensHandlerContent {
    * createPayroll function.
    *
    * @param $row
-   *   The essential information to create new movement node.
+   *   The essential information to create new payroll node.
    */
   private function createPayroll ($row) {
     $data = $this->entityTypeManager
