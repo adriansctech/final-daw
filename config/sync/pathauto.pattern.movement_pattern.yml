@@ -1,0 +1,22 @@
+uuid: f2cdf2bf-ed4f-4e7f-96fc-4f9e8f193a00
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: movement_pattern
+label: 'Movement pattern'
+type: 'canonical_entities:node'
+pattern: 'movement/[node:title]'
+selection_criteria:
+  ab64d789-fa32-4cb9-89f4-2ae1e57944e6:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: ab64d789-fa32-4cb9-89f4-2ae1e57944e6
+    context_mapping:
+      node: node
+    bundles:
+      movement: movement
+selection_logic: and
+weight: -5
+relationships: {  }

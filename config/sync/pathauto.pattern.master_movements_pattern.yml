@@ -1,0 +1,22 @@
+uuid: 92258d01-1f7e-4e33-822e-95757a9fc61f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: master_movements_pattern
+label: 'MASTER movements pattern'
+type: 'canonical_entities:node'
+pattern: 'master-movements/[node:title]'
+selection_criteria:
+  434c5c1a-79f9-4122-85e6-ba98f1a14913:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 434c5c1a-79f9-4122-85e6-ba98f1a14913
+    context_mapping:
+      node: node
+    bundles:
+      master_movements: master_movements
+selection_logic: and
+weight: -5
+relationships: {  }

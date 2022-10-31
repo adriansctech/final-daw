@@ -10,7 +10,7 @@ third_party_settings:
     parent: ''
 name: 'MASTER movements'
 type: master_movements
-description: ''
+description: 'Use this content type to upload a xls file with movements.'
 help: ''
 new_revision: false
 preview_mode: 0

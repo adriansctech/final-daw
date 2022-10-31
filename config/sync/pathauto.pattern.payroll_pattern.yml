@@ -1,0 +1,22 @@
+uuid: 428e9f98-c9a9-4664-b35b-9de165158337
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: payroll_pattern
+label: 'Payroll pattern'
+type: 'canonical_entities:node'
+pattern: 'payroll/[node:title]'
+selection_criteria:
+  f0836b0e-3bee-4e1e-9d42-1c6d7bc8dc48:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: f0836b0e-3bee-4e1e-9d42-1c6d7bc8dc48
+    context_mapping:
+      node: node
+    bundles:
+      payroll: payroll
+selection_logic: and
+weight: -5
+relationships: {  }

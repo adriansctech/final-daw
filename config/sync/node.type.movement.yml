@@ -10,7 +10,7 @@ third_party_settings:
     parent: ''
 name: Movement
 type: movement
-description: ''
+description: 'Use this content type to creat a new movement.'
 help: ''
 new_revision: false
 preview_mode: 0
