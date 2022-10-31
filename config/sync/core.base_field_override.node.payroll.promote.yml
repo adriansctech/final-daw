@@ -1,0 +1,22 @@
+uuid: 68c26871-737c-403f-b555-e70e0b878ac6
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.payroll
+id: node.payroll.promote
+field_name: promote
+entity_type: node
+bundle: payroll
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

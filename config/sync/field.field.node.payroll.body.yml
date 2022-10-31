@@ -1,18 +1,16 @@
-uuid: df690acb-91bb-4743-a80f-b8d293d66a85
+uuid: 1eb3e035-0eeb-45a3-a372-06866704ee01
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.body
-    - node.type.article
+    - node.type.payroll
   module:
     - text
-_core:
-  default_config_hash: IjZnOLWk1Pjq3WRg2pLSA1ERh7Po7izCq_p6UztZr2c
-id: node.article.body
+id: node.payroll.body
 field_name: body
 entity_type: node
-bundle: article
+bundle: payroll
 label: Body
 description: ''
 required: false

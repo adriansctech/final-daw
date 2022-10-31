@@ -13,15 +13,15 @@ entity_type: node
 bundle: master_movements
 label: Document
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:file'
   handler_settings: {  }
-  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_directory: 'xls/[date:custom:Y]-[date:custom:m]'
   file_extensions: xls
-  max_filesize: ''
+  max_filesize: 10MB
   description_field: false
 field_type: file

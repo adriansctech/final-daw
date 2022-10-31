@@ -1,0 +1,4 @@
+services:
+  movemens_handler.content:
+    class: Drupal\movement_handler\MovemensHandlerContent
+    arguments: ['@entity_type.manager']

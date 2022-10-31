@@ -1,14 +1,14 @@
-uuid: cc76905a-601e-415f-890f-3b241cf0be58
+uuid: 4ab3569c-6472-479f-bcf6-a593d697998c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_movement_amount
-    - node.type.movement
-id: node.movement.field_movement_amount
-field_name: field_movement_amount
+    - field.storage.node.field_payroll_amount
+    - node.type.payroll
+id: node.payroll.field_payroll_amount
+field_name: field_payroll_amount
 entity_type: node
-bundle: movement
+bundle: payroll
 label: Amount
 description: ''
 required: true

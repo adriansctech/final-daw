@@ -1,29 +1,37 @@
-uuid: c3d6e2d3-7479-43f6-a1aa-431baa34aea7
+uuid: 1f47eb04-d8da-41bb-bf9b-a1a60c5508ad
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.master_movements.body
-    - field.field.node.master_movements.field_master_movements_date
-    - field.field.node.master_movements.field_master_movements_document
-    - node.type.master_movements
+    - field.field.node.payroll.body
+    - field.field.node.payroll.field_payroll_amount
+    - field.field.node.payroll.field_payroll_date
+    - field.field.node.payroll.field_payroll_document
+    - node.type.payroll
   module:
     - datetime
     - file
-id: node.master_movements.default
+id: node.payroll.default
 targetEntityType: node
-bundle: master_movements
+bundle: payroll
 mode: default
 content:
-  field_master_movements_date:
-    type: datetime_default
+  field_payroll_amount:
+    type: number
     weight: 1
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_payroll_date:
+    type: datetime_default
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_master_movements_document:
+  field_payroll_document:
     type: file_generic
-    weight: 2
+    weight: 3
     region: content
     settings:
       progress_indicator: throbber
