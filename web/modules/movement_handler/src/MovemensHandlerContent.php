@@ -50,14 +50,35 @@ class MovemensHandlerContent {
 
     foreach ($sheeToArray as $key => $information) {
 
-      if ( $key == 6) {
+      if ($key >= 6) {
+        // First of all check if this taxonomy exists.
+        $row['category'] = $information['1'];
+        $row['subcategory'] = $information['2'];
+        $this->createCategorySubcategoryTaxonomy($row['category'], 'category');
+        $this->createCategorySubcategoryTaxonomy($row['subcategory'], 'subcategory');
+      }
+    }
+
+    foreach ($sheeToArray as $key => $information) {
+      if ($key>= 6) {
+        $categoryTerm = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties(['name' => $information['1'], 'vid' => 'category']);
+        $subcategoryTerm = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties(['name' => $information['2'], 'vid' => 'subcategory']);
         $row['date'] = $information['0'];
-        $row['category'] = $this->removeSpecialChars($information['1']);
-        $row['subcategory'] = $this->removeSpecialChars($information['2']);
+        $row['category'] = $information['1'];
+        $row['subcategory'] = $information['2'];
         $row['reason'] = $this->removeSpecialChars($information['3']);
-        $row['amount'] = $information['6'];
-        $row['category'] = $this->createCategorySubcategoryTaxonomy($row['category'], 'category');
-        $row['subcategory']  = $this->createCategorySubcategoryTaxonomy($row['category'], 'subcategory');
+
+        $row['reason'] = $information['3'];
+        // Check if reason to remove or not '-'.
+        if (!str_contains($information['1'], 'prestaciones') ) {
+          $row['amount'] = substr($information['6'], 1);
+        }
+        else {
+          // Replace signal.
+          $row['amount'] = (int)str_replace(",", "", $information['6']);
+        }
+        $row['category'] = $categoryTerm[array_key_first($categoryTerm)]->id();
+        $row['subcategory']  = $subcategoryTerm[array_key_first($subcategoryTerm)]->id();
         $this->createMovement($row);
       }
     }
@@ -71,15 +92,6 @@ class MovemensHandlerContent {
    *   The essentiel information to create new movement node.
    */
   private function createMovement(array $row) {
-    if (!is_numeric($row['category'])) {
-      $this->entityTypeManager->getStorage('taxonomy_term')
-        ->loadByProperties(['name' => $row['category'], 'vid' => 'category'])->id();
-    }
-    if (!is_numeric($row['subcategory'])) {
-      $row['subcategory'] = $this->entityTypeManager->getStorage('taxonomy_term')
-        ->loadByProperties(['name' => $row['subcategory'], 'vid' => 'subcategory'])->id();
-      $row['subcategory'] = $row['subcategory']->id();
-    }
     $date = new DrupalDateTime($row['date']);
     $node = Node::create([
       'type'=> 'movement',
@@ -87,7 +99,9 @@ class MovemensHandlerContent {
       'field_movement_date' => $date->format('Y-m-d\TH:i:00'),
       'field_movement_category' => $row['category'],
       'field_movement_subcategory' => $row['subcategory'],
+      'field_movement_amount' => $row['amount'],
     ]);
+    $node->setPublished(TRUE);
     $node->save();
   }
 
@@ -99,27 +113,15 @@ class MovemensHandlerContent {
    *   if this not exists.
    * @param String taxonomy
    *   With the vocabulary name.
-   *
-   * @return int
-   *   With the tid of new taxonomy.
    */
   private function createCategorySubcategoryTaxonomy(String $term, String $taxonomy) {
-    $tid = '';
     $termExists = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties(['name' => $term, 'vid' => $taxonomy]);
     if(empty($termExists)) {
       $term = Term::create([
         'name' => $term,
         'vid' => $taxonomy,
       ])->save();
-      /*$tree = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree(
-        $taxonomy, 0,1,TRUE);
-      $nid = sizeof($tree);*/
     }
-    else {
-      $tid = $termExists[array_key_first($termExists)]->id();
-    }
-
-    return $tid;
   }
 
   /**
