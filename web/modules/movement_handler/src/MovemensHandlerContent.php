@@ -80,6 +80,7 @@ class MovemensHandlerContent {
         $row['category'] = $categoryTerm[array_key_first($categoryTerm)]->id();
         $row['subcategory']  = $subcategoryTerm[array_key_first($subcategoryTerm)]->id();
         $this->createMovement($row);
+
       }
     }
   }
@@ -92,17 +93,26 @@ class MovemensHandlerContent {
    *   The essentiel information to create new movement node.
    */
   private function createMovement(array $row) {
-    $date = new DrupalDateTime($row['date']);
-    $node = Node::create([
-      'type'=> 'movement',
-      'title'=> $row['reason'],
-      'field_movement_date' => $date->format('Y-m-d\TH:i:00'),
-      'field_movement_category' => $row['category'],
-      'field_movement_subcategory' => $row['subcategory'],
+    // First check if node exists.
+    $data = $this->entityTypeManager
+    ->getStorage('node')
+    ->loadByProperties([
+      'type' => 'movement',
       'field_movement_amount' => $row['amount'],
     ]);
-    $node->setPublished(TRUE);
-    $node->save();
+    if (empty($data)) {
+      $date = new DrupalDateTime($row['date']);
+      $node = Node::create([
+        'type'=> 'movement',
+        'title'=> $row['reason'],
+        'field_movement_date' => $date->format('Y-m-d\TH:i:00'),
+        'field_movement_category' => $row['category'],
+        'field_movement_subcategory' => $row['subcategory'],
+        'field_movement_amount' => $row['amount'],
+      ]);
+      $node->setPublished(TRUE);
+      $node->save();
+    }
   }
 
   /**
