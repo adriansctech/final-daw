@@ -60,27 +60,24 @@ class MovemensHandlerContent {
     }
 
     foreach ($sheeToArray as $key => $information) {
-      if ($key>= 6) {
+      if ($key >= 6) {
         $categoryTerm = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties(['name' => $information['1'], 'vid' => 'category']);
         $subcategoryTerm = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties(['name' => $information['2'], 'vid' => 'subcategory']);
         $row['date'] = $information['0'];
         $row['category'] = $information['1'];
         $row['subcategory'] = $information['2'];
         $row['reason'] = $this->removeSpecialChars($information['3']);
-
         $row['reason'] = $information['3'];
-        // Check if reason to remove or not '-'.
-        if (!str_contains($information['1'], 'prestaciones') ) {
-          $row['amount'] = substr($information['6'], 1);
-        }
-        else {
-          // Replace signal.
-          $row['amount'] = (int)str_replace(",", "", $information['6']);
-        }
         $row['category'] = $categoryTerm[array_key_first($categoryTerm)]->id();
         $row['subcategory']  = $subcategoryTerm[array_key_first($subcategoryTerm)]->id();
-        $this->createMovement($row);
-
+        if (!str_contains($information['1'], 'prestaciones') ) {
+          $row['amount'] = substr($information['6'], 1);
+          $this->createMovement($row);
+        }
+        else {
+          $row['amount'] = (int)str_replace(",", "", $information['6']);
+          $this->createPayroll($row);
+        }
       }
     }
   }
@@ -90,7 +87,7 @@ class MovemensHandlerContent {
    * createMovement function.
    *
    * @param array $row
-   *   The essentiel information to create new movement node.
+   *   The essential information to create new movement node.
    */
   private function createMovement(array $row) {
     // First check if node exists.
@@ -114,6 +111,33 @@ class MovemensHandlerContent {
       $node->save();
     }
   }
+
+  /**
+   * createPayroll function.
+   *
+   * @param $row
+   *   The essential information to create new movement node.
+   */
+  private function createPayroll ($row) {
+    $data = $this->entityTypeManager
+      ->getStorage('node')
+      ->loadByProperties([
+        'type' => 'payroll',
+        'field_payroll_amount' => $row['amount'],
+      ]);
+      if (empty($data)) {
+        $date = new DrupalDateTime($row['date']);
+        $node = Node::create([
+          'type'=> 'payroll',
+          'title'=> $row['reason'],
+          'field_payroll_date' => $date->format('Y-m-d'),
+          'field_payroll_amount' => $row['amount'],
+        ]);
+        $node->setPublished(TRUE);
+        $node->save();
+    }
+  }
+
 
   /**
    * createCategoryTaxonomy function.

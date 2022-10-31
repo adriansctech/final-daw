@@ -1,0 +1,22 @@
+uuid: 97be6baf-0160-43e9-8bbb-8e0464b3bb8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.payroll
+id: node.payroll.status
+field_name: status
+entity_type: node
+bundle: payroll
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

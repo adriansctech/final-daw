@@ -1,0 +1,23 @@
+uuid: 4ab3569c-6472-479f-bcf6-a593d697998c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_payroll_amount
+    - node.type.payroll
+id: node.payroll.field_payroll_amount
+field_name: field_payroll_amount
+entity_type: node
+bundle: payroll
+label: Amount
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: €
+field_type: decimal

@@ -1,0 +1,21 @@
+uuid: 03d58940-84a4-436b-9b35-71f7fd2c5883
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_payroll_date
+    - node.type.payroll
+  module:
+    - datetime
+id: node.payroll.field_payroll_date
+field_name: field_payroll_date
+entity_type: node
+bundle: payroll
+label: Date
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime
