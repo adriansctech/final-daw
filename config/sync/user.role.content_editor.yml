@@ -3,15 +3,15 @@ langcode: en
 status: true
 dependencies:
   config:
-    - node.type.article
-    - node.type.page
+    - node.type.master_movements
+    - node.type.movement
+    - node.type.payroll
     - taxonomy.vocabulary.tags
   module:
     - comment
     - contextual
     - file
     - node
-    - path
     - system
     - taxonomy
     - toolbar
@@ -29,20 +29,18 @@ permissions:
   - 'access files overview'
   - 'access toolbar'
   - 'access tour'
-  - 'administer url aliases'
-  - 'create article content'
-  - 'create page content'
+  - 'create master_movements content'
+  - 'create movement content'
+  - 'create payroll content'
   - 'create terms in tags'
-  - 'create url aliases'
-  - 'delete article revisions'
-  - 'delete own article content'
-  - 'delete own page content'
-  - 'delete page revisions'
-  - 'edit own article content'
+  - 'delete own master_movements content'
+  - 'delete own movement content'
+  - 'delete own payroll content'
   - 'edit own comments'
-  - 'edit own page content'
+  - 'edit own master_movements content'
+  - 'edit own movement content'
+  - 'edit own payroll content'
   - 'edit terms in tags'
   - 'revert all revisions'
   - 'view all revisions'
   - 'view own unpublished content'
-  - 'view the administration theme'

@@ -1,6 +1,30 @@
 <?php
 
+
+use Drupal\Core\Entity\EntityInterface;
+
 /**
  * @file
  * Primary module hooks for Movement handler module.
  */
+
+/**
+ * Implements hook_entity_insert():
+ */
+function movement_handler_entity_insert(EntityInterface $entity) {
+  $entitiesAllowed = ['master_movements'];
+  // Return if node are not allowed.
+  if (!in_array($entity->bundle(), $entitiesAllowed)) {
+    return;
+  }
+
+  // Get file information.
+  $docFieldInformationNew = \Drupal::entityTypeManager()
+    ->getStorage('file')
+    ->load($entity->get("field_master_movements_document")->getValue()['0']['target_id']);
+  $full_path = $docFieldInformationNew->get('uri')->value;
+
+  // Send information about file to custom service.
+  $createContentService = \Drupal::service('movemens_handler.content')
+    ->createNodes($full_path);
+}

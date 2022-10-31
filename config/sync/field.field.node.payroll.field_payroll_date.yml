@@ -1,16 +1,16 @@
-uuid: 691d3885-d758-4523-9634-56344ceea7f9
+uuid: 03d58940-84a4-436b-9b35-71f7fd2c5883
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_master_movements_date
-    - node.type.master_movements
+    - field.storage.node.field_payroll_date
+    - node.type.payroll
   module:
     - datetime
-id: node.master_movements.field_master_movements_date
-field_name: field_master_movements_date
+id: node.payroll.field_payroll_date
+field_name: field_payroll_date
 entity_type: node
-bundle: master_movements
+bundle: payroll
 label: Date
 description: ''
 required: true

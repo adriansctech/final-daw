@@ -11,32 +11,21 @@ dependencies:
     - node.type.movement
   module:
     - datetime
-    - text
 id: node.movement.default
 targetEntityType: node
 bundle: movement
 mode: default
 content:
-  body:
-    type: text_textarea_with_summary
-    weight: 1
-    region: content
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-      show_summary: false
-    third_party_settings: {  }
   field_movement_amount:
     type: number
-    weight: 5
+    weight: 4
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_movement_category:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 2
     region: content
     settings:
       match_operator: CONTAINS
@@ -46,13 +35,13 @@ content:
     third_party_settings: {  }
   field_movement_date:
     type: datetime_default
-    weight: 2
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
   field_movement_subcategory:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
@@ -69,6 +58,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
+  body: true
   created: true
   path: true
   promote: true

@@ -1,4 +1,4 @@
-uuid: f4d9a42c-7034-41e6-bbb5-1c9cc85b4fca
+uuid: 6545b3df-51be-4911-993a-87eb595bd02d
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-name: Movement
-type: movement
-description: 'Use this content type to creat a new movement.'
+name: Payroll
+type: payroll
+description: 'Use this content type to create new payroll.'
 help: ''
 new_revision: false
 preview_mode: 0
