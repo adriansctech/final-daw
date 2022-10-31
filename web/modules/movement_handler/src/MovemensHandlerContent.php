@@ -130,15 +130,15 @@ class MovemensHandlerContent {
       ->getStorage('node')
       ->loadByProperties([
         'type' => 'payroll',
-        'field_payroll_amount' => $row['amount'],
+        'field_movement_amount' => $row['amount'],
       ]);
       if (empty($data)) {
         $date = new DrupalDateTime($row['date']);
         $node = Node::create([
           'type'=> 'payroll',
           'title'=> $row['reason'],
-          'field_payroll_date' => $date->format('Y-m-d'),
-          'field_payroll_amount' => $row['amount'],
+          'field_movement_date' => $date->format('Y-m-d\TH:i:00'),
+          'field_movement_amount' => $row['amount'],
         ]);
         $node->setPublished(TRUE);
         $node->save();

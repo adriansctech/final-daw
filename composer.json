@@ -10,6 +10,24 @@
     },
     "repositories": [
         {
+            "type": "package",
+            "package": {
+                "name": "google/charts",
+                "version": "45",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "google_charts"
+                },
+                "dist": {
+                    "url": "https://www.gstatic.com/charts/loader.js",
+                    "type": "file"
+                },
+                "require": {
+                    "composer/installers": "~1.0"
+                }
+            }
+        },
+        {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
@@ -23,6 +41,7 @@
         "drupal/core-recommended": "^9.4",
         "drupal/pathauto": "^1.11",
         "drush/drush": "^11.3",
+        "google/charts": "45",
         "phpoffice/phpspreadsheet": "^1.25"
     },
     "conflict": {

@@ -5,8 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.master_movements.body
-    - field.field.node.master_movements.field_master_movements_date
     - field.field.node.master_movements.field_master_movements_document
+    - field.field.node.master_movements.field_movement_date
     - node.type.master_movements
   module:
     - text
@@ -30,5 +30,5 @@ content:
     weight: 100
     region: content
 hidden:
-  field_master_movements_date: true
   field_master_movements_document: true
+  field_movement_date: true
