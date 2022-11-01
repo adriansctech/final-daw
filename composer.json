@@ -40,6 +40,7 @@
         "drupal/core-composer-scaffold": "^9.4",
         "drupal/core-project-message": "^9.4",
         "drupal/core-recommended": "^9.4",
+        "drupal/fullcalendar_view": "^5.1",
         "drupal/pathauto": "^1.11",
         "drupal/views_aggregator": "^2.0",
         "drush/drush": "^11.3",
