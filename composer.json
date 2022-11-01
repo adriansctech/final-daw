@@ -42,6 +42,7 @@
         "drupal/core-recommended": "^9.4",
         "drupal/pathauto": "^1.11",
         "drupal/smart_date": "^3.6",
+        "drupal/views_aggregator": "^2.0",
         "drush/drush": "^11.3",
         "google/charts": "45",
         "phpoffice/phpspreadsheet": "^1.25"
