@@ -5,6 +5,7 @@ dependencies:
   config:
     - views.view.general_movements
   module:
+    - system
     - user
     - views
   theme:
@@ -33,3 +34,7 @@ visibility:
       authenticated: authenticated
       content_editor: content_editor
       administrator: administrator
+  request_path:
+    id: request_path
+    negate: false
+    pages: /general-movements
