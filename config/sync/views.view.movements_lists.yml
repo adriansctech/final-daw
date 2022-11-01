@@ -9,6 +9,7 @@ dependencies:
     - node.type.movement
     - taxonomy.vocabulary.category
   content:
+    - 'taxonomy_term:category:12f23b48-d1ca-4b2a-81ba-97759d1d863e'
     - 'taxonomy_term:category:268315d5-c8d2-4905-836f-ee0a846f4645'
     - 'taxonomy_term:category:2dd16761-4a0c-4edc-86c2-1747d857f4a7'
     - 'taxonomy_term:category:30157cfe-4eb0-4e3d-ab86-3e7cfb1ca01f'
@@ -17,6 +18,7 @@ dependencies:
     - 'taxonomy_term:category:569d5f57-12f1-4259-b1f1-677e8f4c1879'
     - 'taxonomy_term:category:79384094-6635-4fa6-8d22-ccc60cebde13'
     - 'taxonomy_term:category:b6e0bd1a-2f76-4ff7-92ae-08fb93d8fcb0'
+    - 'taxonomy_term:category:ebe4ee65-ad2a-41d9-8c8c-43dad82bce9e'
     - 'taxonomy_term:category:f3c886b5-330f-4888-9b83-c4f810096ad6'
   module:
     - better_exposed_filters
@@ -698,6 +700,286 @@ display:
         - 'config:field.storage.node.field_movement_amount'
         - 'config:field.storage.node.field_movement_category'
         - 'config:field.storage.node.field_movement_date'
+  block_1:
+    id: block_1
+    display_title: Block
+    display_plugin: block
+    position: 1
+    display_options:
+      arguments: {  }
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            movement: movement
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        uid_current:
+          id: uid_current
+          table: users
+          field: uid_current
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          entity_type: user
+          plugin_id: user_current
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_movement_category_target_id:
+          id: field_movement_category_target_id
+          table: node__field_movement_category
+          field: field_movement_category_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            22: 22
+            1: 1
+            2: 2
+            24: 24
+            36: 36
+            28: 28
+            26: 26
+            30: 30
+            34: 34
+            38: 38
+            32: 32
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_movement_category_target_id_op
+            label: Category
+            description: ''
+            use_operator: false
+            operator: field_movement_category_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_movement_category_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: category
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        field_movement_category_target_id_1:
+          id: field_movement_category_target_id_1
+          table: node__field_movement_category
+          field: field_movement_category_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: not
+          value:
+            26: 26
+            38: 38
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: category
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        field_movement_date_value:
+          id: field_movement_date_value
+          table: node__field_movement_date
+          field: field_movement_date_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: datetime
+          operator: between
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_movement_date_value_op
+            label: Date
+            description: ''
+            use_operator: false
+            operator: field_movement_date_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_movement_date_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        use_ajax: false
+        arguments: false
+        filters: false
+        filter_groups: false
+      use_ajax: true
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_movement_amount'
+        - 'config:field.storage.node.field_movement_category'
+        - 'config:field.storage.node.field_movement_date'
   page_1:
     id: page_1
     display_title: Page
@@ -706,6 +988,402 @@ display:
     display_options:
       display_extenders: {  }
       path: movements-lists
+      menu:
+        type: none
+        title: ''
+        description: ''
+        weight: 0
+        expanded: false
+        menu_name: main
+        parent: ''
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_movement_amount'
+        - 'config:field.storage.node.field_movement_category'
+        - 'config:field.storage.node.field_movement_date'
+  page_2:
+    id: page_2
+    display_title: 'Page with filters'
+    display_plugin: page
+    position: 1
+    display_options:
+      arguments: {  }
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            movement: movement
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        uid_current:
+          id: uid_current
+          table: users
+          field: uid_current
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          entity_type: user
+          plugin_id: user_current
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_movement_category_target_id:
+          id: field_movement_category_target_id
+          table: node__field_movement_category
+          field: field_movement_category_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            22: 22
+            24: 24
+            36: 36
+            28: 28
+            26: 26
+            30: 30
+            34: 34
+            38: 38
+            32: 32
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_movement_category_target_id_op
+            label: Category
+            description: ''
+            use_operator: false
+            operator: field_movement_category_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_movement_category_target_id
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: category
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        use_ajax: false
+        arguments: false
+        filters: false
+        filter_groups: false
+        header: false
+      use_ajax: false
+      display_description: ''
+      header: {  }
+      display_extenders: {  }
+      path: movements-lists-filtered
+      menu:
+        type: none
+        title: ''
+        description: ''
+        weight: 0
+        expanded: false
+        menu_name: main
+        parent: ''
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_movement_amount'
+        - 'config:field.storage.node.field_movement_category'
+        - 'config:field.storage.node.field_movement_date'
+  page_3:
+    id: page_3
+    display_title: Page
+    display_plugin: page
+    position: 1
+    display_options:
+      arguments: {  }
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            movement: movement
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        uid_current:
+          id: uid_current
+          table: users
+          field: uid_current
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          entity_type: user
+          plugin_id: user_current
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_movement_category_target_id:
+          id: field_movement_category_target_id
+          table: node__field_movement_category
+          field: field_movement_category_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            22: 22
+            24: 24
+            36: 36
+            28: 28
+            26: 26
+            30: 30
+            34: 34
+            38: 38
+            32: 32
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_movement_category_target_id_op
+            label: Category
+            description: ''
+            use_operator: false
+            operator: field_movement_category_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_movement_category_target_id
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: category
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        arguments: false
+        filters: false
+        filter_groups: false
+      display_extenders: {  }
+      path: movements-lists-cleared
+      menu:
+        type: none
+        title: ''
+        description: ''
+        weight: 0
+        expanded: false
+        menu_name: main
+        parent: ''
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:

@@ -1,20 +1,21 @@
-uuid: 1f2658e1-8cb1-4cef-a6eb-56de812d0362
+uuid: ac55898a-bc93-4fd8-ab70-d2eb3d9cc44c
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_movement_amount
     - field.storage.node.field_movement_date
-    - node.type.payroll
+    - node.type.movement
+    - taxonomy.vocabulary.category
   module:
-    - better_exposed_filters
     - charts
     - datetime
     - node
+    - taxonomy
     - user
     - views_aggregator
-id: payroll_list
-label: 'Payroll list'
+id: general_movements
+label: 'General movements'
 module: views
 description: ''
 tag: ''
@@ -27,7 +28,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Payroll list'
+      title: 'General movements'
       fields:
         title:
           id: title
@@ -66,6 +67,70 @@ display:
           type: string
           settings:
             link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_movement_date:
+          id: field_movement_date
+          table: node__field_movement_date
+          field: field_movement_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Date
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: html_date
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -146,9 +211,8 @@ display:
         type: none
         options:
           offset: 0
-          items_per_page: 0
       exposed_form:
-        type: bef
+        type: basic
         options:
           submit_button: Apply
           reset_button: false
@@ -157,25 +221,6 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
-          text_input_required: 'Select any filter and click on Apply to see results'
-          text_input_required_format: basic_html
-          bef:
-            general:
-              autosubmit: false
-              autosubmit_exclude_textfield: false
-              autosubmit_textfield_delay: 500
-              autosubmit_hide: false
-              input_required: false
-              allow_secondary: false
-              secondary_label: 'Advanced options'
-              secondary_open: false
-              reset_button_always_show: false
-            filter:
-              field_movement_date_value:
-                plugin_id: bef_datepicker
-                advanced:
-                  collapsible: false
-                  is_secondary: false
       access:
         type: perm
         options:
@@ -185,23 +230,26 @@ display:
         options: {  }
       empty: {  }
       sorts:
-        created:
-          id: created
-          table: node_field_data
-          field: created
+        field_movement_date_value:
+          id: field_movement_date_value
+          table: node__field_movement_date
+          field: field_movement_date_value
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: node
-          entity_field: created
-          plugin_id: date
+          plugin_id: datetime
           order: DESC
           expose:
             label: ''
             field_identifier: ''
           exposed: false
-          granularity: second
-      arguments: {  }
+          granularity: hour
+      arguments:
+        tid:
+          id: tid
+          table: taxonomy_index
+          field: tid
+          plugin_id: taxonomy_index_tid
       filters:
         status:
           id: status
@@ -224,7 +272,7 @@ display:
           entity_field: type
           plugin_id: bundle
           value:
-            payroll: payroll
+            movement: movement
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -268,63 +316,7 @@ display:
             default_group_multiple: {  }
             group_items: {  }
       style:
-        type: views_aggregator_plugin_style_table
-        options:
-          row_class: ''
-          default_row_class: true
-          columns:
-            title: title
-            field_movement_amount: field_movement_amount
-          default: '-1'
-          info:
-            title:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-              has_aggr: false
-              aggr:
-                views_aggregator_first: views_aggregator_first
-              aggr_par: ''
-              has_aggr_column: false
-              aggr_column: views_aggregator_sum
-              aggr_par_column: ''
-            field_movement_amount:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-              has_aggr: false
-              aggr:
-                views_aggregator_sum: views_aggregator_sum
-              aggr_par: ''
-              has_aggr_column: true
-              aggr_column: views_aggregator_sum
-              aggr_par_column: ''
-          override: true
-          sticky: false
-          summary: ''
-          empty_table: false
-          caption: ''
-          description: ''
-          group_aggregation:
-            group_aggregation_results: '0'
-            grouping_field_class: ''
-            result_label_prefix: ''
-            result_label_suffix: ''
-            grouping_row_class: ''
-          column_aggregation:
-            totals_row_position:
-              2: 2
-              1: 0
-              3: 0
-            totals_per_page: '1'
-            precision: '2'
-            totals_row_class: ''
+        type: table
       row:
         type: fields
       query:
@@ -355,394 +347,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.field_movement_amount'
-  chart_list:
-    id: chart_list
-    display_title: 'Chart list'
-    display_plugin: page
-    position: 1
-    display_options:
-      fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          entity_field: title
-          plugin_id: field
-          label: Title
-          exclude: false
-          alter:
-            alter_text: false
-            make_link: false
-            absolute: false
-            word_boundary: false
-            ellipsis: false
-            strip_tags: false
-            trim: false
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_movement_amount:
-          id: field_movement_amount
-          table: node__field_movement_amount
-          field: field_movement_amount
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: Amount
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: number_decimal
-          settings:
-            thousand_separator: .
-            decimal_separator: ','
-            scale: 2
-            prefix_suffix: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_movement_date:
-          id: field_movement_date
-          table: node__field_movement_date
-          field: field_movement_date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: datetime_default
-          settings:
-            timezone_override: ''
-            format_type: html_month
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-      filters:
-        status:
-          id: status
-          table: node_field_data
-          field: status
-          entity_type: node
-          entity_field: status
-          plugin_id: boolean
-          value: '1'
-          group: 1
-          expose:
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-          value:
-            payroll: payroll
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
-        uid_current:
-          id: uid_current
-          table: users
-          field: uid_current
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          entity_type: user
-          plugin_id: user_current
-          operator: '='
-          value: '1'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        field_movement_date_value:
-          id: field_movement_date_value
-          table: node__field_movement_date
-          field: field_movement_date_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: datetime
-          operator: between
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_movement_date_value_op
-            label: Date
-            description: ''
-            use_operator: false
-            operator: field_movement_date_value_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_movement_date_value
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-      style:
-        type: chart
-        options:
-          grouping:
-            -
-              field: title
-              rendered: true
-              rendered_strip: false
-          chart_settings:
-            library: google
-            type: column
-            fields:
-              label: field_movement_date
-              stacking: false
-              data_providers:
-                title:
-                  enabled: false
-                  color: '#006fb0'
-                  weight: 2
-                field_movement_amount:
-                  enabled: true
-                  color: '#09f198'
-                  weight: 2
-                field_movement_date:
-                  enabled: false
-                  color: '#342e9c'
-                  weight: 3
-              entity_grouping:
-                color_selection_method: by_entities_on_entity_reference
-              color_changer: 0
-            display:
-              title: ''
-              title_position: top
-              data_labels: true
-              data_markers: true
-              legend_position: bottom
-              background: ''
-              three_dimensional: 0
-              polar: 0
-              tooltips: true
-              dimensions:
-                width: ''
-                width_units: '%'
-                height: ''
-                height_units: ''
-              gauge:
-                max: '100'
-                min: '0'
-                green_from: '85'
-                green_to: '100'
-                yellow_from: '50'
-                yellow_to: '85'
-                red_from: '0'
-                red_to: '50'
-            xaxis:
-              title: ''
-              labels_rotation: '0'
-            yaxis:
-              title: ''
-              min: ''
-              max: ''
-              prefix: ''
-              suffix: ''
-              decimal_count: ''
-              labels_rotation: '0'
-      row:
-        type: fields
-        options: {  }
-      defaults:
-        style: false
-        row: false
-        fields: false
-        filters: false
-        filter_groups: false
-      display_description: ''
-      display_extenders: {  }
-      path: payroll-list-charts
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
         - url
         - user
         - 'user.node_grants:view'
@@ -750,149 +354,9 @@ display:
       tags:
         - 'config:field.storage.node.field_movement_amount'
         - 'config:field.storage.node.field_movement_date'
-  list:
-    id: list
-    display_title: 'General list'
-    display_plugin: page
-    position: 1
-    display_options:
-      filters:
-        status:
-          id: status
-          table: node_field_data
-          field: status
-          entity_type: node
-          entity_field: status
-          plugin_id: boolean
-          value: '1'
-          group: 1
-          expose:
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-          value:
-            payroll: payroll
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
-        uid_current:
-          id: uid_current
-          table: users
-          field: uid_current
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          entity_type: user
-          plugin_id: user_current
-          operator: '='
-          value: '1'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        field_movement_date_value:
-          id: field_movement_date_value
-          table: node__field_movement_date
-          field: field_movement_date_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: datetime
-          operator: between
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_movement_date_value_op
-            label: Date
-            description: ''
-            use_operator: false
-            operator: field_movement_date_value_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_movement_date_value
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-      defaults:
-        filters: false
-        filter_groups: false
-      display_description: ''
-      display_extenders: {  }
-      path: payroll-list
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - user
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.field_movement_amount'
-  payroll_list_block_1:
-    id: payroll_list_block_1
-    display_title: Block
+  general_movements_basic_block_1:
+    id: general_movements_basic_block_1
+    display_title: 'General movements basic Block'
     display_plugin: block
     position: 1
     display_options:
@@ -952,7 +416,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: Amount
+          label: ''
           exclude: false
           alter:
             alter_text: false
@@ -996,8 +460,8 @@ display:
           click_sort_column: value
           type: number_decimal
           settings:
-            thousand_separator: .
-            decimal_separator: ','
+            thousand_separator: ''
+            decimal_separator: .
             scale: 2
             prefix_suffix: true
           group_column: value
@@ -1063,7 +527,7 @@ display:
           type: datetime_default
           settings:
             timezone_override: ''
-            format_type: html_month
+            format_type: html_date
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1074,6 +538,62 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+      pager:
+        type: mini
+        options:
+          offset: 0
+          items_per_page: 10
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+      arguments:
+        field_movement_category_target_id:
+          id: field_movement_category_target_id
+          table: node__field_movement_category
+          field: field_movement_category_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: query_parameter
+          default_argument_options:
+            query_param: field_movement_category_target_id
+            fallback: ''
+            multiple: and
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
       style:
         type: chart
         options:
@@ -1087,10 +607,10 @@ display:
             type: column
             fields:
               label: field_movement_date
-              stacking: false
+              stacking: true
               data_providers:
                 title:
-                  enabled: false
+                  enabled: true
                   color: '#006fb0'
                   weight: 2
                 field_movement_amount:
@@ -1143,15 +663,248 @@ display:
         type: fields
         options: {  }
       defaults:
+        use_ajax: false
+        pager: false
         style: false
         row: false
         fields: false
+        arguments: false
+      use_ajax: false
+      display_description: ''
       display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_movement_amount'
+        - 'config:field.storage.node.field_movement_date'
+  general_movements_page_1:
+    id: general_movements_page_1
+    display_title: 'General movements Page'
+    display_plugin: page
+    position: 1
+    display_options:
+      pager:
+        type: mini
+        options:
+          offset: 0
+          items_per_page: 10
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+      arguments: {  }
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            movement: movement
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+        uid_current:
+          id: uid_current
+          table: users
+          field: uid_current
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          entity_type: user
+          plugin_id: user_current
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_movement_category_target_id:
+          id: field_movement_category_target_id
+          table: node__field_movement_category
+          field: field_movement_category_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_movement_category_target_id_op
+            label: Category
+            description: ''
+            use_operator: false
+            operator: field_movement_category_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_movement_category_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: category
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: views_aggregator_plugin_style_table
+        options:
+          row_class: ''
+          default_row_class: true
+          columns:
+            title: title
+            field_movement_amount: field_movement_amount
+          default: '-1'
+          info:
+            title:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: false
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
+            field_movement_amount:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+              has_aggr: false
+              aggr:
+                views_aggregator_first: views_aggregator_first
+              aggr_par: ''
+              has_aggr_column: true
+              aggr_column: views_aggregator_sum
+              aggr_par_column: ''
+          override: true
+          sticky: false
+          summary: ''
+          empty_table: false
+          caption: ''
+          description: ''
+          group_aggregation:
+            group_aggregation_results: '0'
+            grouping_field_class: ''
+            result_label_prefix: ''
+            result_label_suffix: ''
+            grouping_row_class: ''
+          column_aggregation:
+            totals_row_position:
+              2: 2
+              1: 0
+              3: 0
+            totals_per_page: '1'
+            precision: '2'
+            totals_row_class: ''
+      row:
+        type: fields
+        options: {  }
+      defaults:
+        pager: false
+        style: false
+        row: false
+        arguments: false
+        filters: false
+        filter_groups: false
+      display_description: ''
+      display_extenders: {  }
+      path: general-movements
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
         - user
         - 'user.node_grants:view'
         - user.permissions
