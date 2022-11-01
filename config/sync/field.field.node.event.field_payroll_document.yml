@@ -1,0 +1,27 @@
+uuid: 88a01898-69f9-41ef-987a-a9002972cef4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_payroll_document
+    - node.type.event
+  module:
+    - file
+id: node.event.field_payroll_document
+field_name: field_payroll_document
+entity_type: node
+bundle: event
+label: Document
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]/events-docs'
+  file_extensions: pdf
+  max_filesize: '10 MB'
+  description_field: false
+field_type: file
