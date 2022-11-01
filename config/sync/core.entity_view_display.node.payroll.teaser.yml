@@ -5,8 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.payroll.body
-    - field.field.node.payroll.field_payroll_amount
-    - field.field.node.payroll.field_payroll_date
+    - field.field.node.payroll.field_movement_amount
+    - field.field.node.payroll.field_movement_date
     - field.field.node.payroll.field_payroll_document
     - node.type.payroll
   module:
@@ -31,6 +31,6 @@ content:
     weight: 100
     region: content
 hidden:
-  field_payroll_amount: true
-  field_payroll_date: true
+  field_movement_amount: true
+  field_movement_date: true
   field_payroll_document: true

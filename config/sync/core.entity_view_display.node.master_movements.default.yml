@@ -4,8 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.master_movements.body
-    - field.field.node.master_movements.field_master_movements_date
     - field.field.node.master_movements.field_master_movements_document
+    - field.field.node.master_movements.field_movement_date
     - node.type.master_movements
   module:
     - datetime
@@ -16,15 +16,6 @@ targetEntityType: node
 bundle: master_movements
 mode: default
 content:
-  field_master_movements_date:
-    type: datetime_default
-    label: hidden
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 0
-    region: content
   field_master_movements_document:
     type: file_default
     label: hidden
@@ -32,6 +23,15 @@ content:
       use_description_as_link_text: true
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_movement_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 2
     region: content
 hidden:
   body: true

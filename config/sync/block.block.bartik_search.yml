@@ -11,7 +11,7 @@ _core:
 id: bartik_search
 theme: bartik
 region: sidebar_first
-weight: -1
+weight: -9
 provider: null
 plugin: search_form_block
 settings:

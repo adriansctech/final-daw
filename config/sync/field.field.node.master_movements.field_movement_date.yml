@@ -1,20 +1,20 @@
-uuid: 691d3885-d758-4523-9634-56344ceea7f9
+uuid: 76ead376-f29e-4031-b6ca-4aeb658770f1
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_master_movements_date
+    - field.storage.node.field_movement_date
     - node.type.master_movements
   module:
     - datetime
-id: node.master_movements.field_master_movements_date
-field_name: field_master_movements_date
+id: node.master_movements.field_movement_date
+field_name: field_movement_date
 entity_type: node
 bundle: master_movements
 label: Date
 description: ''
 required: true
-translatable: false
+translatable: true
 default_value:
   -
     default_date_type: now

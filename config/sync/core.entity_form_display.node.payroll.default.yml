@@ -4,8 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.payroll.body
-    - field.field.node.payroll.field_payroll_amount
-    - field.field.node.payroll.field_payroll_date
+    - field.field.node.payroll.field_movement_amount
+    - field.field.node.payroll.field_movement_date
     - field.field.node.payroll.field_payroll_document
     - node.type.payroll
   module:
@@ -16,16 +16,16 @@ targetEntityType: node
 bundle: payroll
 mode: default
 content:
-  field_payroll_amount:
+  field_movement_amount:
     type: number
-    weight: 1
+    weight: 27
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-  field_payroll_date:
+  field_movement_date:
     type: datetime_default
-    weight: 2
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }

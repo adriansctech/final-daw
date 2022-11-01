@@ -4,8 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.master_movements.body
-    - field.field.node.master_movements.field_master_movements_date
     - field.field.node.master_movements.field_master_movements_document
+    - field.field.node.master_movements.field_movement_date
     - node.type.master_movements
   module:
     - datetime
@@ -15,18 +15,18 @@ targetEntityType: node
 bundle: master_movements
 mode: default
 content:
-  field_master_movements_date:
-    type: datetime_default
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_master_movements_document:
     type: file_generic
     weight: 2
     region: content
     settings:
       progress_indicator: throbber
+    third_party_settings: {  }
+  field_movement_date:
+    type: datetime_default
+    weight: 26
+    region: content
+    settings: {  }
     third_party_settings: {  }
   title:
     type: string_textfield

@@ -1,18 +1,18 @@
-uuid: 4ab3569c-6472-479f-bcf6-a593d697998c
+uuid: c2192ad2-633a-40c0-ab33-83163a51f50b
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_payroll_amount
+    - field.storage.node.field_movement_amount
     - node.type.payroll
-id: node.payroll.field_payroll_amount
-field_name: field_payroll_amount
+id: node.payroll.field_movement_amount
+field_name: field_movement_amount
 entity_type: node
 bundle: payroll
 label: Amount
 description: ''
-required: true
-translatable: false
+required: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
