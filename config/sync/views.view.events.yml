@@ -479,8 +479,8 @@ display:
           end: ''
           title: title
           left_buttons: 'prev,next today'
-          right_buttons: 'dayGridMonth,timeGridWeek,timeGridDay,listYear,listMonth,listWeek'
-          default_view: dayGridMonth
+          right_buttons: 'timeGridWeek,timeGridDay'
+          default_view: timeGridWeek
           firstDay: '1'
           nav_links: 1
           timeFormat: 'hh:mm a'
@@ -543,8 +543,28 @@ display:
         - 'config:field.storage.node.field_movement_category'
         - 'config:field.storage.node.field_movement_date'
         - 'config:field.storage.node.field_movement_subcategory'
-  page_1:
-    id: page_1
+  events_block_1:
+    id: events_block_1
+    display_title: Block
+    display_plugin: block
+    position: 1
+    display_options:
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_movement_amount'
+        - 'config:field.storage.node.field_movement_category'
+        - 'config:field.storage.node.field_movement_date'
+        - 'config:field.storage.node.field_movement_subcategory'
+  events_page_1:
+    id: events_page_1
     display_title: Page
     display_plugin: page
     position: 1

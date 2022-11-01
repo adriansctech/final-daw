@@ -1099,6 +1099,20 @@ display:
       display_description: ''
       display_extenders: {  }
       path: general-movements
+      menu:
+        type: none
+        title: 'Movements list'
+        description: ''
+        weight: 0
+        expanded: false
+        menu_name: main
+        parent: standard.front_page
+        context: '0'
+      tab_options:
+        type: none
+        title: 'Movements list'
+        description: ''
+        weight: 0
     cache_metadata:
       max-age: -1
       contexts:
