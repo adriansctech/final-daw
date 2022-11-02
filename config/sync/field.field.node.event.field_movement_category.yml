@@ -1,0 +1,29 @@
+uuid: fcdc1702-3f82-4662-b9b9-710d0ec5a8d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_movement_category
+    - node.type.event
+    - taxonomy.vocabulary.category
+id: node.event.field_movement_category
+field_name: field_movement_category
+entity_type: node
+bundle: event
+label: Category
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      category: category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

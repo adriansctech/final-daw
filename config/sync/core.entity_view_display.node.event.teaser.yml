@@ -1,0 +1,36 @@
+uuid: 440aa88f-79f7-47d6-8695-9e67072e4c0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.event.body
+    - field.field.node.event.field_movement_category
+    - field.field.node.event.field_movement_date
+    - field.field.node.event.field_payroll_document
+    - node.type.event
+  module:
+    - text
+    - user
+id: node.event.teaser
+targetEntityType: node
+bundle: event
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_movement_category: true
+  field_movement_date: true
+  field_payroll_document: true

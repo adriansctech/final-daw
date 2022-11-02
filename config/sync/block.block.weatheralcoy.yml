@@ -1,0 +1,40 @@
+uuid: c75df602-2354-46b2-9d9c-5dd158110507
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:8e98e464-e318-440d-87cf-8990a8c12d98'
+  module:
+    - block_content
+    - system
+    - user
+  theme:
+    - bartik
+id: weatheralcoy
+theme: bartik
+region: sidebar_first
+weight: -9
+provider: null
+plugin: 'block_content:8e98e464-e318-440d-87cf-8990a8c12d98'
+settings:
+  id: 'block_content:8e98e464-e318-440d-87cf-8990a8c12d98'
+  label: 'Weather alcoy'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated
+      content_editor: content_editor
+      administrator: administrator

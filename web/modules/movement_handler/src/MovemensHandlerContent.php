@@ -109,7 +109,7 @@ class MovemensHandlerContent {
       $node = Node::create([
         'type'=> 'movement',
         'title'=> $row['reason'],
-        'field_movement_date' => $date->format('Y-m-d\TH:i:00'),
+        'field_movement_date' => $date->format('Y-m-d'),
         'field_movement_category' => $row['category'],
         'field_movement_subcategory' => $row['subcategory'],
         'field_movement_amount' => $row['amount'],
@@ -137,7 +137,7 @@ class MovemensHandlerContent {
         $node = Node::create([
           'type'=> 'payroll',
           'title'=> $row['reason'],
-          'field_movement_date' => $date->format('Y-m-d\TH:i:00'),
+          'field_movement_date' => $date->format('Y-m-d'),
           'field_movement_amount' => $row['amount'],
         ]);
         $node->setPublished(TRUE);

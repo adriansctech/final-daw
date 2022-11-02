@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.event
     - node.type.master_movements
     - node.type.movement
     - node.type.payroll
@@ -29,14 +30,17 @@ permissions:
   - 'access files overview'
   - 'access toolbar'
   - 'access tour'
+  - 'create event content'
   - 'create master_movements content'
   - 'create movement content'
   - 'create payroll content'
   - 'create terms in tags'
+  - 'delete own event content'
   - 'delete own master_movements content'
   - 'delete own movement content'
   - 'delete own payroll content'
   - 'edit own comments'
+  - 'edit own event content'
   - 'edit own master_movements content'
   - 'edit own movement content'
   - 'edit own payroll content'

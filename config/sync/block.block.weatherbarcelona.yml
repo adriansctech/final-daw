@@ -1,0 +1,40 @@
+uuid: 8f3ac02d-dec3-42a0-9d8c-1aae1be79a38
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:ab85c3cb-124c-4051-9312-2e0923b4279f'
+  module:
+    - block_content
+    - system
+    - user
+  theme:
+    - bartik
+id: weatherbarcelona
+theme: bartik
+region: sidebar_first
+weight: -8
+provider: null
+plugin: 'block_content:ab85c3cb-124c-4051-9312-2e0923b4279f'
+settings:
+  id: 'block_content:ab85c3cb-124c-4051-9312-2e0923b4279f'
+  label: 'Weather barcelona'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated
+      content_editor: content_editor
+      administrator: administrator
