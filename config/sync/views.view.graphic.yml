@@ -10,6 +10,7 @@ dependencies:
     - field.storage.node.field_movement_subcategory
     - node.type.initial_amount
     - node.type.movement
+    - taxonomy.vocabulary.category
     - user.role.administrator
     - user.role.authenticated
     - user.role.content_editor
@@ -18,6 +19,7 @@ dependencies:
     - charts
     - datetime
     - node
+    - taxonomy
     - user
     - views_aggregator
 id: graphic
@@ -1392,6 +1394,54 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        field_movement_category_target_id:
+          id: field_movement_category_target_id
+          table: node__field_movement_category
+          field: field_movement_category_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_movement_category_target_id_op
+            label: Category
+            description: ''
+            use_operator: false
+            operator: field_movement_category_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_movement_category_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: category
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
       filter_groups:
         operator: AND
         groups:
