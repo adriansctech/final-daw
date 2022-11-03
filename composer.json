@@ -43,6 +43,8 @@
         "drupal/fullcalendar_view": "^5.1",
         "drupal/pathauto": "^1.11",
         "drupal/views_aggregator": "^2.0",
+        "drupal/webform": "^6.1",
+        "drupal/webform_views": "^5.0",
         "drush/drush": "^11.3",
         "google/charts": "45",
         "phpoffice/phpspreadsheet": "^1.25"
