@@ -1,0 +1,20 @@
+uuid: f6997109-b61b-43c0-94bc-7bd6b58eb61f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_bank_balance
+field_name: field_bank_balance
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

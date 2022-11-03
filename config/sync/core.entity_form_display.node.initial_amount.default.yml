@@ -1,0 +1,43 @@
+uuid: 8e339a88-b328-493d-bce9-e0ebb9563e13
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.initial_amount.field_movement_amount
+    - field.field.node.initial_amount.field_movement_date
+    - node.type.initial_amount
+  module:
+    - datetime
+id: node.initial_amount.default
+targetEntityType: node
+bundle: initial_amount
+mode: default
+content:
+  field_movement_amount:
+    type: number
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_movement_date:
+    type: datetime_default
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true
