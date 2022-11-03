@@ -1,0 +1,42 @@
+uuid: 738f07da-d4b6-450c-b2bb-3723138b4baf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.initial_amount.field_movement_amount
+    - field.field.node.initial_amount.field_movement_date
+    - node.type.initial_amount
+  module:
+    - datetime
+    - user
+id: node.initial_amount.default
+targetEntityType: node
+bundle: initial_amount
+mode: default
+content:
+  field_movement_amount:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_movement_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

@@ -1,0 +1,23 @@
+uuid: 9d61008e-e871-4163-97e5-e463deafa225
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bank_balance
+    - node.type.movement
+id: node.movement.field_bank_balance
+field_name: field_bank_balance
+entity_type: node
+bundle: movement
+label: 'Bank balance'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: €
+field_type: decimal

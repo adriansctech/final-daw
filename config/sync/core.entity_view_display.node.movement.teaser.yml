@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.movement.body
+    - field.field.node.movement.field_bank_balance
     - field.field.node.movement.field_movement_amount
     - field.field.node.movement.field_movement_category
     - field.field.node.movement.field_movement_date
@@ -32,6 +33,7 @@ content:
     weight: 100
     region: content
 hidden:
+  field_bank_balance: true
   field_movement_amount: true
   field_movement_category: true
   field_movement_date: true

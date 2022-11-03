@@ -78,14 +78,15 @@ class MovemensHandlerContent {
         $row['reason'] = $information['3'];
         $row['category'] = $categoryTerm[array_key_first($categoryTerm)]->id();
         $row['subcategory'] = $subcategoryTerm[array_key_first($subcategoryTerm)]->id();
-        if (!str_contains($information['1'], 'prestaciones')) {
-          $row['amount'] = substr($information['6'], 1);
-          $this->createMovement($row);
+        $row['balance'] = (int)str_replace(",", "", $information['7']);
+        if (str_contains($information['1'], 'prestaciones')) {
+          $row['amount'] = (int)str_replace(",", "", $information['6']);
         }
         else {
-          $row['amount'] = (int) str_replace(",", "", $information['6']);
-          $this->createPayroll($row);
+          $row['amount'] = $information['6'];
         }
+        $this->createMovement($row);
+
       }
     }
   }
@@ -113,38 +114,12 @@ class MovemensHandlerContent {
         'field_movement_category' => $row['category'],
         'field_movement_subcategory' => $row['subcategory'],
         'field_movement_amount' => $row['amount'],
+        'field_bank_balance' => $row['balance'],
       ]);
       $node->setPublished(TRUE);
       $node->save();
     }
   }
-
-  /**
-   * createPayroll function.
-   *
-   * @param $row
-   *   The essential information to create new payroll node.
-   */
-  private function createPayroll ($row) {
-    $data = $this->entityTypeManager
-      ->getStorage('node')
-      ->loadByProperties([
-        'type' => 'payroll',
-        'field_movement_amount' => $row['amount'],
-      ]);
-      if (empty($data)) {
-        $date = new DrupalDateTime($row['date']);
-        $node = Node::create([
-          'type'=> 'payroll',
-          'title'=> $row['reason'],
-          'field_movement_date' => $date->format('Y-m-d'),
-          'field_movement_amount' => $row['amount'],
-        ]);
-        $node->setPublished(TRUE);
-        $node->save();
-    }
-  }
-
 
   /**
    * createCategoryTaxonomy function.
@@ -163,24 +138,6 @@ class MovemensHandlerContent {
         'vid' => $taxonomy,
       ])->save();
     }
-  }
-
-  /**
-   * removeSpecialChars function.
-   *
-   * @param String $value
-   *   with values to clear.
-   *
-   * @return string
-   *   with values cleared.
-   */
-  private function removeSpecialChars(String $value) {
-    $value = utf8_decode($value);
-    $notAlloeed = ["á","é","í","ó","ú","Á","É","Í","Ó","Ú","ñ","À","Ã","Ì","Ò","Ù","Ã™","Ã ","Ã¨","Ã¬","Ã²","Ã¹","ç","Ç","Ã¢","ê","Ã®","Ã´","Ã»","Ã‚","ÃŠ","ÃŽ","Ã”","Ã›","ü","Ã¶","Ã–","Ã¯","Ã¤","«","Ò","Ã","Ã„","Ã‹"];
-    $allowed = ["a","e","i","o","u","A","E","I","O","U","n","N","A","E","I","O","U","a","e","i","o","u","c","C","a","e","i","o","u","A","E","I","O","U","u","o","O","i","a","e","U","I","A","E"];
-    $textCleared = str_replace($notAlloeed, $allowed ,$value);
-    $textCleared = utf8_encode($textCleared);
-    return $textCleared;
   }
 
 }

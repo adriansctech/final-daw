@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.movement.body
+    - field.field.node.movement.field_bank_balance
     - field.field.node.movement.field_movement_amount
     - field.field.node.movement.field_movement_category
     - field.field.node.movement.field_movement_date
@@ -16,6 +17,13 @@ targetEntityType: node
 bundle: movement
 mode: default
 content:
+  field_bank_balance:
+    type: number
+    weight: 26
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   field_movement_amount:
     type: number
     weight: 4
