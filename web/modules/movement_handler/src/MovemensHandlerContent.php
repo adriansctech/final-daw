@@ -74,7 +74,7 @@ class MovemensHandlerContent {
         $row['date'] = $information['0'];
         $row['category'] = $information['1'];
         $row['subcategory'] = $information['2'];
-        $row['reason'] = $this->removeSpecialChars($information['3']);
+        $row['reason'] = $information['3'];
         $row['reason'] = $information['3'];
         $row['category'] = $categoryTerm[array_key_first($categoryTerm)]->id();
         $row['subcategory'] = $subcategoryTerm[array_key_first($subcategoryTerm)]->id();

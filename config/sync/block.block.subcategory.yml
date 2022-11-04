@@ -1,34 +1,33 @@
-uuid: 8f3ac02d-dec3-42a0-9d8c-1aae1be79a38
+uuid: 6ff8cc7c-f98c-460a-b701-b5fb61f54952
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:ab85c3cb-124c-4051-9312-2e0923b4279f'
+  config:
+    - facets.facet.subcategory
   module:
-    - block_content
+    - facets
     - system
     - user
   theme:
     - bartik
-id: weatherbarcelona
+id: subcategory
 theme: bartik
 region: sidebar_first
-weight: -9
+weight: -5
 provider: null
-plugin: 'block_content:ab85c3cb-124c-4051-9312-2e0923b4279f'
+plugin: 'facet_block:subcategory'
 settings:
-  id: 'block_content:ab85c3cb-124c-4051-9312-2e0923b4279f'
-  label: 'Weather barcelona'
-  label_display: '0'
-  provider: block_content
-  status: true
-  info: ''
-  view_mode: full
+  id: 'facet_block:subcategory'
+  label: Subcategory
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: subcategory
 visibility:
   request_path:
     id: request_path
     negate: false
-    pages: '<front>'
+    pages: /search-api-list
   user_role:
     id: user_role
     negate: false
