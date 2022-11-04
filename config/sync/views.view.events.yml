@@ -685,7 +685,7 @@ display:
         filters: false
         filter_groups: false
       display_extenders: {  }
-      path: movements-list/events
+      path: search-api-list/events
       menu:
         type: tab
         title: Calendar

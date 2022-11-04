@@ -13,7 +13,7 @@ dependencies:
 id: weatheralcoy
 theme: bartik
 region: sidebar_first
-weight: -9
+weight: -10
 provider: null
 plugin: 'block_content:8e98e464-e318-440d-87cf-8990a8c12d98'
 settings:

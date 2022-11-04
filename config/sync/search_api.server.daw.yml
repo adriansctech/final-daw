@@ -1,0 +1,14 @@
+uuid: 932b6bfc-b020-402c-9ce6-96c4da98c9a6
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_db
+id: daw
+name: daw
+description: ''
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 1
+  matching: words

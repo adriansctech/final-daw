@@ -1,0 +1,168 @@
+uuid: 3d1b3890-c94d-4a88-afaf-b3dce9338eac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_movement_amount
+    - field.storage.node.field_bank_balance
+    - field.storage.node.field_movement_category
+    - field.storage.node.field_movement_date
+    - field.storage.node.field_movement_subcategory
+    - search_api.server.daw
+  module:
+    - node
+    - taxonomy
+    - user
+    - search_api
+id: daw
+name: daw
+description: ''
+read_only: false
+field_settings:
+  field_bank_balance:
+    label: 'Bank balance'
+    datasource_id: 'entity:node'
+    property_path: field_bank_balance
+    type: decimal
+    dependencies:
+      config:
+        - field.storage.node.field_bank_balance
+  field_movement_amount:
+    label: Amount
+    datasource_id: 'entity:node'
+    property_path: field_movement_amount
+    type: decimal
+    dependencies:
+      config:
+        - field.storage.node.field_movement_amount
+  field_movement_category:
+    label: Category
+    datasource_id: 'entity:node'
+    property_path: field_movement_category
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_movement_category
+  field_movement_date:
+    label: Date
+    datasource_id: 'entity:node'
+    property_path: field_movement_date
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_movement_date
+  field_movement_subcategory:
+    label: Subcategory
+    datasource_id: 'entity:node'
+    property_path: field_movement_subcategory
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_movement_subcategory
+  name:
+    label: Name
+    datasource_id: 'entity:taxonomy_term'
+    property_path: name
+    type: string
+    dependencies:
+      module:
+        - taxonomy
+  name_1:
+    label: Name
+    datasource_id: 'entity:user'
+    property_path: name
+    type: string
+    dependencies:
+      module:
+        - user
+  nid:
+    label: ID
+    datasource_id: 'entity:node'
+    property_path: nid
+    type: integer
+    dependencies:
+      module:
+        - node
+  status:
+    label: Published
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - node
+  tid:
+    label: 'Term ID'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: tid
+    type: integer
+    dependencies:
+      module:
+        - taxonomy
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+    dependencies:
+      module:
+        - node
+  uid:
+    label: 'Authored by'
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    dependencies:
+      module:
+        - node
+  uid_1:
+    label: 'User ID'
+    datasource_id: 'entity:user'
+    property_path: uid
+    type: integer
+    dependencies:
+      module:
+        - user
+  uuid:
+    label: UUID
+    datasource_id: 'entity:taxonomy_term'
+    property_path: uuid
+    type: string
+    dependencies:
+      module:
+        - taxonomy
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - movement
+    languages:
+      default: true
+      selected: {  }
+  'entity:taxonomy_term':
+    bundles:
+      default: false
+      selected:
+        - category
+    languages:
+      default: true
+      selected: {  }
+  'entity:user':
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  entity_type: {  }
+  language_with_fallback: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  index_directly: true
+  track_changes_in_references: true
+server: daw
