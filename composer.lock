@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "48c91ec1171efa572e545a592951902d",
+    "content-hash": "d195f32a3d806ed394e8642674b8d018",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2301,6 +2301,76 @@
             }
         },
         {
+            "name": "drupal/remove_http_headers",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/remove_http_headers.git",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/remove_http_headers-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "9087381bb8576a81ec0df520037b9355a582aa36"
+            },
+            "require": {
+                "drupal/core": "^8.6||^9.0"
+            },
+            "require-dev": {
+                "ekino/phpstan-banned-code": "^0.3.1",
+                "mglaman/phpstan-drupal": "^0.12.2",
+                "phpstan/phpstan": "^0.12.17",
+                "phpstan/phpstan-deprecation-rules": "^0.12.2",
+                "phpstan/phpstan-strict-rules": "^0.12.2"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1605094126",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Orlando Thöny",
+                    "homepage": "https://www.drupal.org/user/3343332",
+                    "email": "orlando.thoeny@gmail.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "marco-s",
+                    "homepage": "https://www.drupal.org/user/3396620"
+                },
+                {
+                    "name": "milovan",
+                    "homepage": "https://www.drupal.org/user/2018332"
+                },
+                {
+                    "name": "orlando.thoeny",
+                    "homepage": "https://www.drupal.org/user/3558789"
+                }
+            ],
+            "description": "Removes configured HTTP Response headers.",
+            "homepage": "https://drupal.org/project/remove_http_headers",
+            "keywords": [
+                "Drupal",
+                "HTTP headers",
+                "Security"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/remove_http_headers"
+            }
+        },
+        {
             "name": "drupal/search_api",
             "version": "1.27.0",
             "source": {
@@ -2439,6 +2509,50 @@
             "homepage": "https://www.drupal.org/project/token",
             "support": {
                 "source": "https://git.drupalcode.org/project/token"
+            }
+        },
+        {
+            "name": "drupal/username_enumeration_prevention",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/username_enumeration_prevention.git",
+                "reference": "8.x-1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/username_enumeration_prevention-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "0fe67462d3c919a7a8f33c41f1cb593ecf7ed7cf"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.2",
+                    "datestamp": "1613949220",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "nicksanta",
+                    "homepage": "https://www.drupal.org/user/87915"
+                }
+            ],
+            "description": "Prevents username enumeration on password reset and user pages.",
+            "homepage": "https://www.drupal.org/project/username_enumeration_prevention",
+            "support": {
+                "source": "https://git.drupalcode.org/project/username_enumeration_prevention"
             }
         },
         {
