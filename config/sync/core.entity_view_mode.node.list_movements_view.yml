@@ -1,0 +1,10 @@
+uuid: 106a4f51-a835-4cc0-ace6-fcfe04d69425
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.list_movements_view
+label: 'List movements view'
+targetEntityType: node
+cache: true
