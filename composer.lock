@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d195f32a3d806ed394e8642674b8d018",
+    "content-hash": "17a4ab1b73a3d793fa6bab262be4efdc",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1850,80 +1850,6 @@
             }
         },
         {
-            "name": "drupal/facets",
-            "version": "2.0.5",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/facets.git",
-                "reference": "2.0.5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/facets-2.0.5.zip",
-                "reference": "2.0.5",
-                "shasum": "8be11b5bca088212270603cd3f3e69185022e379"
-            },
-            "require": {
-                "drupal/core": "^9.3 || ^10.0"
-            },
-            "conflict": {
-                "drupal/search_api": "<1.14"
-            },
-            "require-dev": {
-                "drupal/jquery_ui_slider": "~1.1",
-                "drupal/jquery_ui_touch_punch": "~1.0",
-                "drupal/search_api": "^1.25||1.x-dev"
-            },
-            "suggest": {
-                "drupal/jquery_ui_slider": "Required for the 'Facets Range Widget' module to work",
-                "drupal/jquery_ui_touch_punch": "Required for the 'Facets Range Widget' module to work"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.0.5",
-                    "datestamp": "1658315614",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "See all contributors",
-                    "homepage": "https://www.drupal.org/node/2348769/committers"
-                },
-                {
-                    "name": "drunken monkey",
-                    "homepage": "https://www.drupal.org/user/205582"
-                },
-                {
-                    "name": "mkalkbrenner",
-                    "homepage": "https://www.drupal.org/user/124705"
-                },
-                {
-                    "name": "Nick_vh",
-                    "homepage": "https://www.drupal.org/user/122682"
-                },
-                {
-                    "name": "StryKaizer",
-                    "homepage": "https://www.drupal.org/user/462700"
-                }
-            ],
-            "description": "The Facet module allows site builders to easily create and manage faceted search interfaces.",
-            "homepage": "https://www.drupal.org/project/facets",
-            "support": {
-                "source": "git://git.drupal.org/project/facets.git",
-                "issues": "https://www.drupal.org/project/issues/facets",
-                "irc": "irc://irc.freenode.org/drupal-search-api"
-            }
-        },
-        {
             "name": "drupal/fullcalendar_view",
             "version": "5.1.7",
             "source": {
@@ -2301,6 +2227,58 @@
             }
         },
         {
+            "name": "drupal/poll",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/poll.git",
+                "reference": "8.x-1.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/poll-8.x-1.5.zip",
+                "reference": "8.x-1.5",
+                "shasum": "59b4ec4545aa5901c5f3a177760b17b645c0617d"
+            },
+            "require": {
+                "drupal/core": "^8.7.7 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.5",
+                    "datestamp": "1638777657",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "adammalone",
+                    "homepage": "https://www.drupal.org/user/1295980"
+                },
+                {
+                    "name": "Berdir",
+                    "homepage": "https://www.drupal.org/user/214652"
+                },
+                {
+                    "name": "mqanneh",
+                    "homepage": "https://www.drupal.org/user/2833163"
+                }
+            ],
+            "description": "Allows your site to capture votes on different topics in the form of multiple choice questions.",
+            "homepage": "https://www.drupal.org/project/poll",
+            "support": {
+                "source": "https://git.drupalcode.org/project/poll"
+            }
+        },
+        {
             "name": "drupal/remove_http_headers",
             "version": "1.0.0",
             "source": {
@@ -2368,78 +2346,6 @@
             ],
             "support": {
                 "source": "https://git.drupalcode.org/project/remove_http_headers"
-            }
-        },
-        {
-            "name": "drupal/search_api",
-            "version": "1.27.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/search_api.git",
-                "reference": "8.x-1.27"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.27.zip",
-                "reference": "8.x-1.27",
-                "shasum": "b8c9a055fe43435c09231fd93d3e07c5d2863a46"
-            },
-            "require": {
-                "drupal/core": "^9.3 || ^10.0"
-            },
-            "conflict": {
-                "drupal/search_api_solr": "2.* || 3.0 || 3.1"
-            },
-            "require-dev": {
-                "drupal/language_fallback_fix": "@dev",
-                "drupal/search_api_autocomplete": "@dev",
-                "drupal/search_api_db": "*"
-            },
-            "suggest": {
-                "drupal/facets": "Adds the ability to create faceted searches.",
-                "drupal/search_api_autocomplete": "Allows adding autocomplete suggestions to search fields.",
-                "drupal/search_api_solr": "Adds support for using Apache Solr as a backend."
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.27",
-                    "datestamp": "1666211720",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                },
-                "drush": {
-                    "services": {
-                        "drush.services.yml": "^9 || ^10"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Thomas Seidl",
-                    "homepage": "https://www.drupal.org/u/drunken-monkey"
-                },
-                {
-                    "name": "Nick Veenhof",
-                    "homepage": "https://www.drupal.org/u/nick_vh"
-                },
-                {
-                    "name": "See other contributors",
-                    "homepage": "https://www.drupal.org/node/790418/committers"
-                }
-            ],
-            "description": "Provides a generic framework for modules offering search capabilities.",
-            "homepage": "https://www.drupal.org/project/search_api",
-            "support": {
-                "source": "https://git.drupalcode.org/project/search_api",
-                "issues": "https://www.drupal.org/project/issues/search_api",
-                "irc": "irc://irc.freenode.org/drupal-search-api"
             }
         },
         {
@@ -2606,182 +2512,6 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/views_aggregator",
                 "issues": "https://www.drupal.org/project/issues/views_aggregator"
-            }
-        },
-        {
-            "name": "drupal/webform",
-            "version": "6.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/webform.git",
-                "reference": "6.1.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform-6.1.3.zip",
-                "reference": "6.1.3",
-                "shasum": "efd032eadc10a4752b9b0203152a5d20eefac175"
-            },
-            "require": {
-                "drupal/core": "^8.8 || ^9"
-            },
-            "require-dev": {
-                "drupal/address": "~1.0",
-                "drupal/bootstrap": "~3.0",
-                "drupal/captcha": "~1.0",
-                "drupal/chosen": "~3.0",
-                "drupal/clientside_validation": "~3.0",
-                "drupal/clientside_validation_jquery": "*",
-                "drupal/devel": "~3.0",
-                "drupal/entity": "~1.0",
-                "drupal/entity_print": "~2.0",
-                "drupal/gnode": "*",
-                "drupal/group": "1.0",
-                "drupal/jquery_ui": "~1.0",
-                "drupal/jquery_ui_checkboxradio": "~1.0",
-                "drupal/jquery_ui_datepicker": "~1.0",
-                "drupal/lingotek": "~3.0",
-                "drupal/mailsystem": "~4.0",
-                "drupal/paragraphs": "~1.0",
-                "drupal/select2": "~1.0",
-                "drupal/smtp": "~1.0",
-                "drupal/styleguide": "~1.0",
-                "drupal/telephone_validation": "~2.0",
-                "drupal/token": "~1.0",
-                "drupal/variationcache": "~1.0",
-                "drupal/webform_access": "*",
-                "drupal/webform_attachment": "*",
-                "drupal/webform_clientside_validation": "*",
-                "drupal/webform_devel": "*",
-                "drupal/webform_entity_print": "*",
-                "drupal/webform_group": "*",
-                "drupal/webform_node": "*",
-                "drupal/webform_options_limit": "*",
-                "drupal/webform_scheduled_email": "*",
-                "drupal/webform_share": "*",
-                "drupal/webform_ui": "*"
-            },
-            "suggest": {
-                "drupal/jquery_ui_checkboxradio": "Provides jQuery UI Checkboxradio library. Required by the Webform jQueryUI Buttons module. The Webform jQueryUI Buttons module is deprecated because jQueryUI is no longer maintained.",
-                "drupal/jquery_ui_datepicker": "Provides jQuery UI Datepicker library. Required to support datepickers. The Webform jQueryUI Datepicker module is deprecated because jQueryUI is no longer maintained."
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "6.1.3",
-                    "datestamp": "1644940723",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                },
-                "drush": {
-                    "services": {
-                        "drush.services.yml": "^9 || ^10"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Jacob Rockowitz (jrockowitz)",
-                    "homepage": "https://www.drupal.org/u/jrockowitz",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Alexander Trotsenko (bucefal91)",
-                    "homepage": "https://www.drupal.org/u/bucefal91",
-                    "role": "Co-maintainer"
-                },
-                {
-                    "name": "Contributors",
-                    "homepage": "https://www.drupal.org/node/7404/committers",
-                    "role": "Contributor"
-                },
-                {
-                    "name": "quicksketch",
-                    "homepage": "https://www.drupal.org/user/35821"
-                },
-                {
-                    "name": "torotil",
-                    "homepage": "https://www.drupal.org/user/865256"
-                }
-            ],
-            "description": "Enables the creation of webforms and questionnaires.",
-            "homepage": "https://drupal.org/project/webform",
-            "support": {
-                "source": "https://git.drupalcode.org/project/webform",
-                "issues": "https://www.drupal.org/project/issues/webform?version=8.x",
-                "docs": "https://www.drupal.org/docs/8/modules/webform",
-                "forum": "https://drupal.stackexchange.com/questions/tagged/webform"
-            }
-        },
-        {
-            "name": "drupal/webform_views",
-            "version": "5.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/webform_views.git",
-                "reference": "8.x-5.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform_views-8.x-5.0.zip",
-                "reference": "8.x-5.0",
-                "shasum": "e2050bc3750f89c915b376c511240770ee0dd881"
-            },
-            "require": {
-                "drupal/core": "^9",
-                "drupal/webform": "^6"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-5.0",
-                    "datestamp": "1664791391",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "acbramley",
-                    "homepage": "https://www.drupal.org/user/1036766"
-                },
-                {
-                    "name": "bucefal91",
-                    "homepage": "https://www.drupal.org/user/504128"
-                },
-                {
-                    "name": "geek-merlin",
-                    "homepage": "https://www.drupal.org/user/229048"
-                },
-                {
-                    "name": "jrockowitz",
-                    "homepage": "https://www.drupal.org/user/371407"
-                },
-                {
-                    "name": "VladimirAus",
-                    "homepage": "https://www.drupal.org/user/673120"
-                },
-                {
-                    "name": "ws.agency",
-                    "homepage": "https://www.drupal.org/user/2851415"
-                }
-            ],
-            "description": "Webform integration with views.",
-            "homepage": "https://www.drupal.org/project/webform_views",
-            "support": {
-                "source": "https://git.drupalcode.org/project/webform_views"
             }
         },
         {
